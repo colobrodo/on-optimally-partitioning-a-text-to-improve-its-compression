@@ -7,4 +7,4 @@ The work outlines the primary technique employed by R. Venturini, I. Nitto and P
 For more information about the RAVEN Group, visit [raven-laboratory.github.io](https://raven-laboratory.github.io/).
 
 ------------------
-[Credits](https://github.com/FedericoBruzzone/your-optimizing-compiler-is-not-optimizing-enough) to [Federico Bruzzone](https://github.com/FedericoBruzzone) for the presentation themes
+[Credits](https://github.com/FedericoBruzzone/your-optimizing-compiler-is-not-optimizing-enough) to [Federico Bruzzone](https://github.com/FedericoBruzzone) for the presentation theme
