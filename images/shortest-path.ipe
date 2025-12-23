@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.24">
-<info created="D:20251223114519" modified="D:20251223163915"/>
+<info created="D:20251223114519" modified="D:20251223213232"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -313,17 +313,15 @@ h
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
 <use layer="alpha" name="mark/disk(sx)" pos="128 640" size="normal" stroke="black"/>
-<use name="mark/disk(sx)" pos="256 640" size="normal" stroke="black"/>
+<use matrix="1 0 0 1 -64 0" name="mark/disk(sx)" pos="256 640" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 16 0" name="mark/disk(sx)" pos="320 640" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 80 0" name="mark/disk(sx)" pos="384 640" size="normal" stroke="black"/>
-<text transformations="translations" pos="128 624" stroke="black" type="label" width="8.146" height="4.294" depth="1.49" valign="baseline" style="math">v_i
+<text matrix="1 0 0 1 8 16" transformations="translations" pos="128 624" stroke="black" type="label" width="8.146" height="4.294" depth="1.49" valign="baseline" style="math">v_i
 </text>
-<text matrix="1 0 0 1 0 32" transformations="translations" pos="256 624" stroke="black" type="label" width="18.233" height="4.294" depth="2.32" valign="baseline" style="math">v_{i+1}</text>
-<text matrix="1 0 0 1 32 16" transformations="translations" pos="320 624" stroke="black" type="label" width="12.225" height="4.29" depth="2.49" valign="baseline" style="math">v_{t_1}
+<text matrix="1 0 0 1 -64 24" transformations="translations" pos="256 624" stroke="black" type="label" width="18.233" height="4.294" depth="2.32" valign="baseline" style="math">v_{i+1}</text>
+<text matrix="1 0 0 1 24 16" transformations="translations" pos="320 624" stroke="black" type="label" width="12.225" height="4.29" depth="2.49" valign="baseline" style="math">v_{t_1}
 </text>
 <text matrix="1 0 0 1 80 0" transformations="translations" pos="384 624" stroke="black" type="label" width="20.339" height="4.294" depth="2.32" valign="baseline" style="math">v_{n+1}</text>
-<text transformations="translations" pos="192 688" stroke="black" type="label" width="44.84" height="7.473" depth="2.49" valign="baseline" style="math">w(i, j - 1)
-</text>
 <path stroke="black" arrow="normal/normal">
 128 640 m
 107.498 0 0 -107.498 232 612.8 336 640 a
@@ -340,11 +338,13 @@ h
 464 640
 464 640 c
 </path>
-<path stroke="black" arrow="normal/normal">
-256 640 m
-56.5685 0 0 56.5685 296 680 336 640 a
-</path>
-<text transformations="translations" pos="288 608" stroke="black" type="label" width="48.234" height="7.473" depth="2.49" valign="baseline" style="math">w(i + 1, t_1)</text>
+<text matrix="1 0 0 1 -64 -16" transformations="translations" pos="288 608" stroke="black" type="label" width="48.234" height="7.473" depth="2.49" valign="baseline" style="math">w(i + 1, t_1)</text>
 <text transformations="translations" pos="288 720" stroke="black" type="label" width="31.076" height="7.473" depth="2.49" valign="baseline" style="math">w(i, t_1)</text>
+<path stroke="black" arrow="normal/normal">
+192 640 m
+96.3328 0 0 96.3328 264 704 336 640 a
+</path>
+<text matrix="1 0 0 1 16 -8" transformations="translations" pos="400 608" stroke="black" type="label" width="26.695" height="7.473" depth="2.49" valign="baseline" style="math">d_{\cal{G}}(t_1)</text>
+<text transformations="translations" pos="416 616" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline" style="math"></text>
 </page>
 </ipe>

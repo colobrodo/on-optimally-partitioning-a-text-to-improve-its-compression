@@ -260,5 +260,15 @@
 <g style="fill:rgb(0%,0%,100%);fill-opacity:1;">
   <use xlink:href="#glyph12-1" x="8.132" y="202.49"/>
 </g>
+<g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
+  <use xlink:href="#glyph3-1" x="338.73696" y="145.2412"/>
+  <use xlink:href="#glyph3-1" x="345.0232" y="145.2412"/>
+  <use xlink:href="#glyph3-1" x="351.309439" y="145.2412"/>
+</g>
+<g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
+  <use xlink:href="#glyph3-1" x="50.73696" y="145.2412"/>
+  <use xlink:href="#glyph3-1" x="57.0232" y="145.2412"/>
+  <use xlink:href="#glyph3-1" x="63.309439" y="145.2412"/>
+</g>
 </g>
 </svg>

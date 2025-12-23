@@ -1,6 +1,5 @@
 for ipefile in *.ipe; do
 	name=${ipefile%.*}
-	echo $name
-	echo $ipefile
+	echo "Rendering $ipefile"
 	iperender -svg $ipefile $name.svg
 done

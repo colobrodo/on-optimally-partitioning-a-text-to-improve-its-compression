@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.24">
-<info created="D:20251223114519" modified="D:20251223142343"/>
+<info created="D:20251223114519" modified="D:20251223213613"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -328,7 +328,7 @@ h
 128 640 m
 107.498 0 0 -107.498 232 612.8 336 640 a
 </path>
-<text matrix="2.27792 0 0 2.27792 -374.304 -818.11" pos="288 640" stroke="black" type="label" width="8.302" height="1.052" depth="0" valign="baseline" style="math">...</text>
+<text matrix="2.27792 0 0 2.27792 -486.304 -818.11" pos="288 640" stroke="black" type="label" width="8.302" height="1.052" depth="0" valign="baseline" style="math">...</text>
 <path stroke="blue" dash="dashed">
 208 784 m
 208 624 l
@@ -344,5 +344,10 @@ h
 <text matrix="1.31793 0 0 1.31793 -147.519 -247.762" pos="464 768" stroke="black" type="label" width="73.312" height="11.3" depth="5.3" valign="baseline" style="math">\frac{w(i, r)}{w(i, h)} \le \frac{(1 + \varepsilon)^k}{(1 + \varepsilon)^{k - 1}}</text>
 <text matrix="1.40902 0 0 1.40902 -189.785 -350.242" pos="464 768" stroke="black" type="label" width="67.254" height="10.061" depth="5.18" valign="baseline" style="math">\frac{w(i, r)}{w(i, h)} \le (1 + \varepsilon)</text>
 <text matrix="1.24697 0 0 1.24697 -130.594 -255.518" pos="464 768" stroke="black" type="label" width="99.366" height="7.473" depth="2.49" valign="baseline" style="math">w(i, r) \le (1 + \varepsilon)w(i, h)</text>
+<path stroke="blue" arrow="normal/normal">
+128 640 m
+107.498 0 0 -107.498 232 612.8 336 640 a
+</path>
+<text matrix="2.27792 0 0 2.27792 -374.304 -818.11" pos="288 640" stroke="black" type="label" width="8.302" height="1.052" depth="0" valign="baseline" style="math">...</text>
 </page>
 </ipe>
