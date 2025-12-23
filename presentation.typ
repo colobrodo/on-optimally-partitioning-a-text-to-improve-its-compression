@@ -264,22 +264,6 @@
 
 
 #focus-slide[
-  = So your compiler is unable to _incrementalize_ functions with multiple recursions?
-  Apparently, yes.
-]
-
-
-#simple-slide[#align(center)[
-  = Conclusions
-
- The incrementalization of a program in presence of multiple recursions is *opaque*, and a procedure to automatically perform such transformation seems to be *missing* in the literature.
-
-  Last week I wrote an email to Liu asking for clarification, and *two* days ago I received a kind reply directing me to Liu24 (2024) --- which confirms the above statements.
-
-  _We are trying to understand whether it is really possible to rely exclusively on static analysis steps to automatically perform the transformation in a “general” setting, at least for a class of functions._
-]]
-
-#focus-slide[
   = Thank You!
 ]
 
