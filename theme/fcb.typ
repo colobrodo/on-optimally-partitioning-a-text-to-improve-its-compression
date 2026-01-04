@@ -38,7 +38,7 @@
     fill: fcb-background.get(),
   )
   // Set default text styles
-  set text(fill: fcb-foreground.get(), size: 25pt)
+  set text(font: "Open Sans", fill: fcb-foreground.get(), size: 25pt)
   show footnote.entry: set text(size: .6em)
   show heading.where(level: 2): set block(below: 2em)
 

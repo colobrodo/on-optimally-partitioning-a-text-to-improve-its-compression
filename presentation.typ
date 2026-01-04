@@ -35,6 +35,8 @@
 #title-slide[
   = On Optimally Partitioning a Text to Improve Its Compression
 
+  #v(1em)
+
   Davide Cologni, #footnote[
       RAVEN Group -- Ca' Foscari University of Venice, \
       #h(1.5em) Github: #link("https://github.com/colobrodo")[github.com/colobrodo], \
