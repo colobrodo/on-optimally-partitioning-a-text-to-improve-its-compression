@@ -50,7 +50,7 @@
 #centered-slide[
   = Problem: Text Partitioning
 
-  #v(2em)
+  #v(1em)
 
   #align(horizon + center)[
     We have a compressor $cal(C)$ and a Text $T$ of size $n$, it's possible to divide $T$ into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and compress each of them individually with $cal(C)$ to improve the overall compression?
@@ -64,25 +64,19 @@
 #centered-slide[
   = Text Partitioning Example
 
-  #v(2em)
+  #v(1em)
 
   #align(horizon + center)[
     TODO
-    We have a compressor $cal(C)$ and a Text $T$ of size $n$, it's possible to divide $T$ into $k <= n$ parts so to improve the overall compression?
-    
-    Intuitively we can group the most similar parts of the string together so each partition is better compressed by $cal(C)$.
   ]
 ]
 
 #centered-slide[
   = Reduction to SSSP
-
-  #v(1em)
-
   We can model each partition problem as a directed graph with $n + 1$ vertices, where an edge exists between $v_i$ and $v_j$ only if $ 1 <= i < j <= n + 1 $ 
 
   #figure(
-    image("images/reduction.svg", width: 80%),
+    image("images/reduction.svg", width: 75%),
   ) <reduction>
   
 
@@ -91,10 +85,10 @@
 #centered-slide[
   = Reduction to SSSP - Bijection between paths and partitions
 
-  #v(2em)
+  #v(1em)
 
   #one-by-one(start: 1)[
-    We can then show that there exists a bijection from each path $pi = (v_1, v_i_1) ... (v_i_k, v_(n+1))$ in the graph, and a partitioning of the text $T$ $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$
+    We can then show that there exists a bijection from each path $pi = (v_1, v_i_1) ... (v_i_k, v_(n+1))$ in the graph, and the partitioning of the text $T$ in the form $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$
   ]
 
   #figure(
@@ -144,7 +138,7 @@
   Due to the monotonicity of the compressor for every node $1 <= i < k < j <= n + 1$ we have that $w(i, k) <= w(i, j)$
 
   #figure(
-    image("images/monotonicity.svg", width: 64%),
+    image("images/monotonicity.svg", width: 60%),
   ) <monotonicity>
 ]
 
@@ -173,18 +167,20 @@
   For each node $i$ select the $epsilon$-maximal edges, so the outgoing edge from $i$ that satisfy one of these conditions:
   - The edges $(i, j)$ such that $w(i, j) <= (1 + epsilon)^k < w(i, j + 1)$ for any integer $k >= 1$
   - The last outgoing edge: $(i, n + 1)$
+]
 
+#centered-slide[
   So we select the best approximations of the powers of $(1 + epsilon)$ from below: We then have at most $log_(1+epsilon) L$ outgoing edges for each node.
 
   
   #figure(
-    image("images/maximal-eps.svg", width: 80%),
+    image("images/maximal-eps.svg", width: 65%),
   ) <maximal-eps>
 ]
 
 #simple-slide[
 
-  Each edge is then "covered" by an $epsilon$-maximal edge: The weight of the edge is then approximated by $(1 + epsilon)$ times the weight of the maximal edge that covers it. 
+  Each edge is then _"covered"_ by an $epsilon$-maximal edge: The weight of the edge is then approximated by $(1 + epsilon)$ times the weight of the maximal edge that covers it. 
 
 
   #figure(
@@ -197,19 +193,21 @@
 
 #simple-slide[
   == Lemma 1
-  Let $d_cal(G)(i)$ be the shortest path in our graph $cal(G)$ from $v_i$ to $v_(n+1)$ then
+  Let $d_cal(G)(i)$ be the cost of the shortest path in our graph $cal(G)$ from $v_i$ to $v_(n+1)$ then
 
   For all the vertices $i, j: 1 <= i < j <= n + 1$, $d_cal(G)(i) >= d_cal(G)(j)$
 
   *Proof by induction:*
   - Base, trivial case for $n + 1$
   - Then we need to show that $d_cal(G)(i) >= d_cal(G)(i + 1)$
+  #v(2em)
+
   Let $d_cal(G)(i)$ be $(v_i, v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$ 
     - Trivial if $t_1 = i + 1$
     - If $t_1 > i + 1$ then we can construct a shortest path $(v_(i+1), v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$ because thanks to the definition of _monotonicity_ we know that $w(i, t_1) >= w(i + 1, t_1)$ 
 
     #figure(
-      image("images/shortest-path.svg", width: 85%),
+      image("images/shortest-path.svg", width: 60%),
     ) <shortest-path>
 ]
 
@@ -217,13 +215,20 @@
   = Theorem
   Let $cal(G)_epsilon$ be the graph containing only $epsilon$-maximal edges, then $d_(cal(G)_epsilon)(i) <= (1 + epsilon)d_(cal(G))(i)$ for every $1 <= i <= n + 1$.
 
+  // I should say induction on what
   *Proof by induction:*
-  - Base, trivial case for $n + 1$
-  - Then let $d_(cal(G))(i) = (v_i, v_t_1) .. (v_t_h, v_n) = w(i, t_1) + d_cal(G)(t_1)$.
-    We choose the $epsilon$-maximal node $r$ that covers $t_1$: So $r > t_1$ and we already know that $w(i, r) <= (1 + epsilon)w(i, t_1)$. \
-    By _Lemma 1_: $d_cal(G)(r) <= d_cal(G)(t_1) $ \
-    By inductive hypothesis $d_cal(G)_epsilon (r) <= (1 + epsilon)d_cal(G)(r) <= (1 + epsilon)d_cal(G)(t_1)$ \
-    In the end $d_(cal(G)_epsilon)(i) = w(i, r) + d_cal(G)_epsilon (r) <= (1 + epsilon)(w(i, t_1) + d_cal(G)(t_1))$
+  - *Base*, trivial case for $n + 1$ 
+  - Then let $pi(i) = (v_i, v_t_1) .. (v_t_h, v_n)$ the shortest path starting from node $v_i$ and let $d_cal(G) = w(i, t_1) + d_cal(G)(t_1)$ be its cost.
+    We choose the $epsilon$-maximal node $r$ that covers $t_1$: 
+    So $r > t_1$ and we already know that #par(first-line-indent: 1em, $w(i, r) <= (1 + epsilon)w(i, t_1)$) 
+    
+    By _Lemma 1_: \ #par(first-line-indent: 1em,
+$d_cal(G)(r) <= d_cal(G)(t_1) $) 
+  
+    By inductive hypothesis: \ 
+    #par(first-line-indent: 1em, $d_cal(G)_epsilon (r) <= (1 + epsilon)d_cal(G)(r) <= (1 + epsilon)d_cal(G)(t_1)$) 
+    
+    In the end \ #par(first-line-indent: 1em, $d_(cal(G)_epsilon)(i) = w(i, r) + d_cal(G)_epsilon (r) <= (1 + epsilon)(w(i, t_1) + d_cal(G)(t_1)))$)
 ]
 
 #simple-slide[
@@ -235,31 +240,33 @@
   1. if we construct naively this graph we should remove edges from a $O(n^2)$ graph
   2. We should compute the weight of the graph
 
-  #v(2em)
+  #v(1em)
 
-  We can solve both these problems efficiently at once!
+  _We can solve both these problems efficiently at once!_
 ]
 
 #simple-slide[
   = Sliding windows
+  #v(1em)
 
   We keep $log_(1 + epsilon)L$ sliding windows all starting at $v_i$, but ending in a different position.
   The $k$-th window find the $k$-th $epsilon$-maximal edge. 
 
   #figure(
-    image("images/sliding-windows.svg", width: 70%),
+    image("images/sliding-windows.svg", width: 80%),
   )
   
 ]
 
 #simple-slide[
   = Sliding windows
+  #v(1em)
 
   For each compressor we should implement 2 operations on the windows `advance_left`, `advance_right`:
   The first operation advances the start of *all* the windows.
 
   #figure(
-    image("images/sliding-windows-advance-start.svg", width: 60%),
+    image("images/sliding-windows-advance-start.svg", width: 80%),
   )
 ]
 
