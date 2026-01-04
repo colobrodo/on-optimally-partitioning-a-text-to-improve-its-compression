@@ -241,25 +241,46 @@
 #simple-slide[
   = Sliding windows
 
-  #v(0.5em)
-
   We keep $log_(1 + epsilon)L$ sliding windows all starting at $v_i$, but ending in a different position.
-  The $h$-th window advance on the right to reach the last edge smaller than the $h$-power of $(1 + epsilon)$ so finding the $h$-th maximal edge starting from node $i$.
+  The $k$-th window find the $k$-th $epsilon$-maximal edge. 
 
-  After completing the dynamic programming step for the node $i$ we advance all the windows from the start. 
+  #figure(
+    image("images/sliding-windows.svg", width: 70%),
+  )
+  
+]
 
-  For each compressor we should implement 2 operations `advance_left`, `advance_right`: if they had respectively a complexity of $O(L)$ and $O(R)$ our algorithm execute asymptotically $O(n L + n log_(1+epsilon) R)$ steps
+#simple-slide[
+  = Sliding windows
+
+  For each compressor we should implement 2 operations on the windows `advance_left`, `advance_right`:
+  The first operation advances the start of *all* the windows.
+
+  #figure(
+    image("images/sliding-windows-advance-start.svg", width: 60%),
+  )
+]
+
+#simple-slide[
+  = Sliding windows
+  #v(0.5em)
+  `advance_right` 
+  advance the end of the $k$-th window to reach the last edge smaller than $(1 + epsilon)^k$, so finding the $k$-th maximal edge starting from node $i$.
+  #figure(
+    image("images/sliding-windows-advance-end.svg", width: 70%),
+  )
+  if the operations `advance_left` and `advance_right` have respectively a complexity of $O(L)$ and $O(R)$ our algorithm execute asymptotically $O(n L + n log_(1+epsilon) R)$ steps
+]
+
+#simple-slide[
+  = Algorithm
+  #v(0.5em)
+  TODO:
 
 ]
 
 #centered-slide[
   The authors provide several implementations of the sliding windows approach to estimate the size of different compressors, among the others statistical compressors (using 0-th order and k-order entropy)
-]
-
-#centered-slide[
-  #figure(
-    image("images/sliding-windows.svg", width: 85%),
-  )
 ]
 
 
