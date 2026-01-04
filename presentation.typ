@@ -265,7 +265,9 @@
   = Sliding windows
   #v(0.5em)
   `advance_right` 
-  advance the end of the $k$-th window to reach the last edge smaller than $(1 + epsilon)^k$, so finding the $k$-th maximal edge starting from node $i$.
+  advance the end of the $k$-th window of one position.
+  
+  We call this function until we reach the last edge smaller than $(1 + epsilon)^k$, so until we find the $k$-th maximal edge starting from node $i$.
   #figure(
     image("images/sliding-windows-advance-end.svg", width: 70%),
   )
@@ -280,7 +282,7 @@
 ]
 
 #centered-slide[
-  The authors provide several implementations of the sliding windows approach to estimate the size of different compressors, among the others statistical compressors (using 0-th order and k-order entropy)
+  The authors provide several implementations of the sliding windows framework to estimate the size of different compressors, among the others statistical compressors (using 0-th order and k-order entropy)
 ]
 
 
