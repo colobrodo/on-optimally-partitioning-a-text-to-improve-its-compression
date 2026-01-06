@@ -215,7 +215,7 @@
   = Theorem
   Let $cal(G)_epsilon$ be the graph containing only $epsilon$-maximal edges, then $d_(cal(G)_epsilon)(i) <= (1 + epsilon)d_(cal(G))(i)$ for every $1 <= i <= n + 1$.
 
-  // I should say induction on what
+  // TODO: I should say induction on what
   *Proof by induction:*
   - *Base*, trivial case for $n + 1$ 
   - Then let $pi(i) = (v_i, v_t_1) .. (v_t_h, v_n)$ the shortest path starting from node $v_i$ and let $d_cal(G) = w(i, t_1) + d_cal(G)(t_1)$ be its cost.
