@@ -57,7 +57,7 @@
     
     Intuitively we can group the most similar parts of the string together so each partition is better compressed by $cal(C)$.
     
-    We do *not* permute the string we are only interested on partitioning it. 
+    We do *not* permute the string.\ We are only interested on partitioning it. 
   ]
 ]
 
