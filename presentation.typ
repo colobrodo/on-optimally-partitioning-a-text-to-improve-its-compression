@@ -56,9 +56,9 @@
   #v(1em)
 
   #align(horizon + center)[
-    We have a compressor $cal(C)$ and a Text $T$ of size $n$, is it possible to divide $T$ into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and compress each of them individually with $cal(C)$ to improve the overall compression?
+    We have a compressor $scr(C)$ and a Text $T$ of size $n$, is it possible to divide $T$ into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and compress each of them individually with $scr(C)$ to improve the overall compression?
     
-    Intuitively we can group the most similar parts of the string together so each partition is better compressed by $cal(C)$.
+    Intuitively we can group the most similar parts of the string together so each partition is better compressed by $scr(C)$.
     
     We do *not* permute the string.\ We are only interested in partitioning it. 
   ]
@@ -108,7 +108,7 @@
   #v(2em)
 
   #one-by-one(start: 1)[
-    If we weight each edge $(i, j)$ of the graph by the cost of compressing the corresponding text segment $w(i, j) = cal(C)(T[i, j-1])$, we can solve the partitioning problem _optimally_ computing the *Single Source Shortest Path (SSSP)*
+    If we weight each edge $(i, j)$ of the graph by the cost of compressing the corresponding text segment $w(i, j) = scr(C)(T[i, j-1])$, we can solve the partitioning problem _optimally_ computing the *Single Source Shortest Path (SSSP)*
 
     It can be computed efficiently in $O(|E|)$ time using a classic dynamic programming algorithm. 
   ]
@@ -119,20 +119,20 @@
   *Problems:*
   #v(0.5em)
   1. Our graph has $O(n^2)$ nodes by construction
-  2. To initialize the weight $w(i, j)$ we should execute $cal(C)$ on every substring of the text
+  2. To initialize the weight $w(i, j)$ we should execute $scr(C)$ on every substring of the text
 ]
 
 #centered-slide[
-  = Assumption on $cal(C)$
+  = Assumption on $scr(C)$
 
   #v(0.5em)
 
   - Our compressor is _monotonic_: the compressed output on a suffix or a prefix of the string is always smaller than the compression on the whole string: 
-  $cal(C)(T[i, j]) >= cal(C)(T[i, j - 1])$
+  $scr(C)(T[i, j]) >= scr(C)(T[i, j - 1])$
   
-  $cal(C)(T[i, j]) >= cal(C)(T[i + 1, j])$
+  $scr(C)(T[i, j]) >= scr(C)(T[i + 1, j])$
   
-  - We can compute the size of the compressed output incrementally: computing $cal(C)(T[i, j])$ from $cal(C)(T[i - 1, j])$ or $cal(C)(T[i, j - 1])$ take constant time
+  - We can compute the size of the compressed output incrementally: computing $scr(C)(T[i, j])$ from $scr(C)(T[i - 1, j])$ or $scr(C)(T[i, j - 1])$ take constant time
 ]
 
 #centered-slide[
@@ -196,16 +196,16 @@
 
 #simple-slide[
   == Lemma 1
-  Let $d_cal(G)(i)$ be the cost of the shortest path in our graph $cal(G)$ from $v_i$ to $v_(n+1)$ then
+  Let $d_scr(G)(i)$ be the cost of the shortest path in our graph $scr(G)$ from $v_i$ to $v_(n+1)$ then
 
-  For all the vertices $i, j: 1 <= i < j <= n + 1$, $d_cal(G)(i) >= d_cal(G)(j)$
+  For all the vertices $i, j: 1 <= i < j <= n + 1$, $d_scr(G)(i) >= d_scr(G)(j)$
 
   *Proof by induction:*
   - Base, trivial case for $n + 1$
-  - Then we need to show that $d_cal(G)(i) >= d_cal(G)(i + 1)$
+  - Then we need to show that $d_scr(G)(i) >= d_scr(G)(i + 1)$
   #v(2em)
 
-  Let $d_cal(G)(i)$ be $(v_i, v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$ 
+  Let $d_scr(G)(i)$ be $(v_i, v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$ 
     - Trivial if $t_1 = i + 1$
     - If $t_1 > i + 1$ then we can construct a shortest path $(v_(i+1), v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$ because thanks to the definition of _monotonicity_ we know that $w(i, t_1) >= w(i + 1, t_1)$ 
 
@@ -216,22 +216,22 @@
 
 #simple-slide[
   = Theorem
-  Let $cal(G)_epsilon$ be the graph containing only $epsilon$-maximal edges, then $d_(cal(G)_epsilon)(i) <= (1 + epsilon)d_(cal(G))(i)$ for every $1 <= i <= n + 1$.
+  Let $scr(G)_epsilon$ be the graph containing only $epsilon$-maximal edges, then $d_(scr(G)_epsilon)(i) <= (1 + epsilon)d_(scr(G))(i)$ for every $1 <= i <= n + 1$.
 
   // TODO: I should say induction on what
   *Proof by induction:*
   - *Base*, trivial case for $n + 1$ 
-  - Then let $pi(i) = (v_i, v_t_1) .. (v_t_h, v_n)$ the shortest path starting from node $v_i$ and let $d_cal(G) = w(i, t_1) + d_cal(G)(t_1)$ be its cost.
+  - Then let $pi(i) = (v_i, v_t_1) .. (v_t_h, v_n)$ the shortest path starting from node $v_i$ and let $d_scr(G) = w(i, t_1) + d_scr(G)(t_1)$ be its cost.
     We choose the $epsilon$-maximal node $r$ that covers $t_1$: 
     So $r > t_1$ and we already know that #par(first-line-indent: 1em, $w(i, r) <= (1 + epsilon)w(i, t_1)$) 
     
     By _Lemma 1_: \ #par(first-line-indent: 1em,
-$d_cal(G)(r) <= d_cal(G)(t_1) $) 
+$d_scr(G)(r) <= d_scr(G)(t_1) $) 
   
     By inductive hypothesis: \ 
-    #par(first-line-indent: 1em, $d_cal(G)_epsilon (r) <= (1 + epsilon)d_cal(G)(r) <= (1 + epsilon)d_cal(G)(t_1)$) 
+    #par(first-line-indent: 1em, $d_scr(G)_epsilon (r) <= (1 + epsilon)d_scr(G)(r) <= (1 + epsilon)d_scr(G)(t_1)$) 
     
-    In the end \ #par(first-line-indent: 1em, $d_(cal(G)_epsilon)(i) = w(i, r) + d_cal(G)_epsilon (r) <= (1 + epsilon)(w(i, t_1) + d_cal(G)(t_1)))$)
+    In the end \ #par(first-line-indent: 1em, $d_(scr(G)_epsilon)(i) = w(i, r) + d_scr(G)_epsilon (r) <= (1 + epsilon)(w(i, t_1) + d_scr(G)(t_1)))$)
 ]
 
 #simple-slide[
