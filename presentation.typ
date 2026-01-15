@@ -1,5 +1,8 @@
 #import "./theme/fcb.typ": *
 #import "@preview/cades:0.3.1": qr-code
+#import "@preview/algorithmic:1.0.7"
+#import algorithmic: style-algorithm, algorithm-figure
+#show: style-algorithm
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1": *
 #show: codly-init.with()
@@ -37,11 +40,11 @@
 
   #v(1em)
 
-  Davide Cologni, #footnote[
+  Davide Cologni#footnote[
       RAVEN Group -- Ca' Foscari University of Venice, \
       #h(1.5em) Github: #link("https://github.com/colobrodo")[github.com/colobrodo], \
       #h(1.5em) Email: #link("mailto:davide.cologni@unive.it")[davide.cologni\@unive.it] \
-    ] PhD Candidate
+    ], PhD Candidate
 
     Venice, Italy -- #datetime.today().display("[day] [month repr:long] [year repr:full]")
 ]
@@ -53,11 +56,11 @@
   #v(1em)
 
   #align(horizon + center)[
-    We have a compressor $cal(C)$ and a Text $T$ of size $n$, it's possible to divide $T$ into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and compress each of them individually with $cal(C)$ to improve the overall compression?
+    We have a compressor $cal(C)$ and a Text $T$ of size $n$, is it possible to divide $T$ into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and compress each of them individually with $cal(C)$ to improve the overall compression?
     
     Intuitively we can group the most similar parts of the string together so each partition is better compressed by $cal(C)$.
     
-    We do *not* permute the string.\ We are only interested on partitioning it. 
+    We do *not* permute the string.\ We are only interested in partitioning it. 
   ]
 ]
 
@@ -147,7 +150,7 @@
 
   #v(1em)
 
-  Thanks to this property we can obtain an approximated algorithm by *sparsifing* the graph thus selecting only some edges.
+  Thanks to this property we can obtain an approximated algorithm by *sparsifying* the graph thus selecting only some edges.
 
   We are able to obtain a $(1 + epsilon)$-approximation, for every $epsilon >= 0$, with a time complexity of $O(n log_(1 + epsilon) L)$ 
   
@@ -283,15 +286,17 @@ $d_cal(G)(r) <= d_cal(G)(t_1) $)
   if the operations `advance_left` and `advance_right` have respectively a complexity of $O(L)$ and $O(R)$ our algorithm execute asymptotically $O(n L + n log_(1+epsilon) R)$ steps
 ]
 
-#simple-slide[
-  = Algorithm
-  #v(0.5em)
-  TODO:
-
-]
-
 #centered-slide[
   The authors provide several implementations of the sliding windows framework to estimate the size of different compressors, among the others statistical compressors (using 0-th order and k-order entropy)
+]
+
+#simple-slide[
+  = Computing Entropy
+]
+
+#simple-slide[
+  = Application: Partitioned Elias-Fano
+
 ]
 
 
