@@ -197,7 +197,7 @@
 
 #simple-slide[
   == Lemma 1
-  Let $d_scr(G)(i)$ be the cost of the shortest path in our graph $scr(G)$ from $v_i$ to $v_(n+1)$ then
+  Let $d_scr(G)(i)$ be the cost of the shortest path $pi_i$ in our graph $scr(G)$ from $v_i$ to $v_(n+1)$ then
 
   For all the vertices $i, j: 1 <= i < j <= n + 1$, $d_scr(G)(i) >= d_scr(G)(j)$
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.24">
-<info created="D:20251223114519" modified="D:20251223213232"/>
+<info created="D:20251223114519" modified="D:20260116132346"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -344,7 +344,8 @@ h
 192 640 m
 96.3328 0 0 96.3328 264 704 336 640 a
 </path>
-<text matrix="1 0 0 1 16 -8" transformations="translations" pos="400 608" stroke="black" type="label" width="26.695" height="7.473" depth="2.49" valign="baseline" style="math">d_{\cal{G}}(t_1)</text>
+<text matrix="1 0 0 1 16 -8" transformations="translations" pos="400 608" stroke="black" type="label" width="13.075" height="4.29" depth="2.49" valign="baseline" style="math">\pi_{t_1}</text>
 <text transformations="translations" pos="416 616" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline" style="math"></text>
+<text transformations="translations" pos="256 640" stroke="black" type="label" width="11.623" height="1.052" depth="0" valign="baseline" style="math">\dots</text>
 </page>
 </ipe>
