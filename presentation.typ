@@ -62,10 +62,10 @@
 
   #align(horizon + center)[
     We have a compressor $scr(C)$ and a Text $T$ of size $n$, is it possible to divide $T$ into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and compress each of them individually with $scr(C)$ to improve the overall compression?
+
+    Intuitively we can group the most similar parts of the string together so each partition is better compressed by $scr(C)$. 
     
-    Intuitively we can group the most similar parts of the string together so each partition is better compressed by $scr(C)$.
-    
-    We do *not* _permute_ the string.\ We are only interested in _partitioning_ it. 
+    *Note:* We do *not* _permute_ the string.\ We are only interested in _partitioning_ it. 
   ]
 ]
 
@@ -85,7 +85,7 @@
 
 #centered-slide[
   = Reduction to SSSP
-  We can model each partition problem as a directed graph with $n + 1$ vertices, where an edge exists between $v_i$ and $v_j$ only if $ 1 <= i < j <= n + 1 $ 
+  We can model the partition problem as a directed graph with $n + 1$ vertices, where an edge exists between $v_i$ and $v_j$ only if $ 1 <= i < j <= n + 1 $ 
 
   #figure(
     image("images/reduction.svg", width: 75%),

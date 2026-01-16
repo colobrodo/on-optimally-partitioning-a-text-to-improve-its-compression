@@ -104,9 +104,8 @@
 )[#text(size: .6em, fill: fcb-header-footer-foreground.get(), it)]
 
 #let small-format(it) = toolbox.full-width-block(
-  //fill: fcb-background.get(),
   inset: 8pt,
-)[#text(size: .6em, it)]
+)[#text(size: 18pt, it)]
 
 #let centered-slide(body) = {
   set page(
@@ -133,7 +132,7 @@
 // #let focus-slide(background: aqua.darken(50%), foreground: white, body) = {
 #let focus-slide(body) = context {
   set page(fill: fcb-primary.get())
-  set text(fill: fcb-background.get(), size: 1.5em)
+  set text(fill: fcb-background.get(), size: 37pt)
   centered-slide(body)
 }
 
