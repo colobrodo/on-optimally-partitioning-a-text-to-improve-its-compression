@@ -65,7 +65,7 @@
     
     Intuitively we can group the most similar parts of the string together so each partition is better compressed by $scr(C)$.
     
-    We do *not* permute the string.\ We are only interested in partitioning it. 
+    We do *not* _permute_ the string.\ We are only interested in _partitioning_ it. 
   ]
 ]
 
@@ -75,7 +75,11 @@
   #v(1em)
 
   #align(horizon + center)[
-    TODO
+    Suppose we have the text $T = "a"^n"b"^n$.
+
+    If we compress the entire text at once we should use one bit per symbol, or *$O(n)$ bits*.
+    
+    If instead we partition the text to compress $"a"^n$ and $"b"^n$ separately we can compress the whole string using only *$O(log_2(n))$ bits* indicating just the length of each substring.
   ]
 ]
 
