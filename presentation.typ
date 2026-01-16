@@ -129,11 +129,11 @@
   #v(0.5em)
 
   - Our compressor is _monotonic_: the compressed output on a suffix or a prefix of the string is always smaller than the compression on the whole string: 
-  $scr(C)(T[i, j]) >= scr(C)(T[i, j - 1])$
+  $|scr(C)(T[i, j])| >= |scr(C)(T[i, j - 1])|$
   
-  $scr(C)(T[i, j]) >= scr(C)(T[i + 1, j])$
+  $|scr(C)(T[i, j])| >= |scr(C)(T[i + 1, j])|$
   
-  - We can compute the size of the compressed output incrementally: computing $scr(C)(T[i, j])$ from $scr(C)(T[i - 1, j])$ or $scr(C)(T[i, j - 1])$ take constant time
+  - We can compute the size of the compressed output incrementally: computing |$scr(C)(T[i, j])$| from the state of $scr(C)(T[i - 1, j])$ or $scr(C)(T[i, j - 1])$ takes constant time
 ]
 
 #centered-slide[
