@@ -13,7 +13,8 @@
 #let background = white // silver
 #let foreground = black
 #let primary = rgb(56, 59, 83)
-#let link-background = rgb(255, 178, 178).darken(40%)
+// #let link-background = rgb(255, 178, 178).darken(40%)
+#let link-background = black
 #let header-footer-foreground = rgb(255, 178, 178).darken(40%)
 
 #show: fcb-theme.with(
@@ -44,7 +45,7 @@
       RAVEN Group -- Ca' Foscari University of Venice, \
       #h(1.5em) Github: #link("https://github.com/colobrodo")[github.com/colobrodo], \
       #h(1.5em) Email: #link("mailto:davide.cologni@unive.it")[davide.cologni\@unive.it] \
-    ], PhD Candidate
+    ], PhD Student
 
     Venice, Italy -- #datetime.today().display("[day] [month repr:long] [year repr:full]")
 ]

@@ -55,7 +55,7 @@
 
   // Show links
   show link: this => {
-    let show-type = "underline"
+    let show-type = "bold-underline"
     let label-color = foreground // A label is something like: <a> or #label("a")
     let default-color = link-background
 
@@ -74,6 +74,14 @@
       } else {
         text(this, fill: default-color)
       }
+    } else if show-type == "bold-underline" {
+      if type(this.dest) == label {
+          let this = text(this, fill: label-color, weight: "semibold")
+          underline(this, stroke: label-color)
+      } else {
+          let this = text(this, fill: default-color, weight: "semibold")
+          underline(this, stroke: default-color)
+      }
     } else if show-type == "underline" {
       if type(this.dest) == label {
           let this = text(this, fill: label-color)
@@ -90,7 +98,30 @@
   body
 }
 
+#let deco-format(it) = toolbox.full-width-block(
+  fill: fcb-background.get(),
+  inset: 8pt,
+)[#text(size: .6em, fill: fcb-header-footer-foreground.get(), it)]
+
+#let small-format(it) = toolbox.full-width-block(
+  fill: fcb-background.get(),
+  inset: 8pt,
+)[#text(size: .6em, fill: fcb-foreground.get(), it)]
+
 #let centered-slide(body) = {
+    set page(
+    footer: context {
+      small-format({
+        stack(
+          dir: ltr,
+          h(1fr),
+          toolbox.slide-number + " / " + toolbox.last-slide-number
+        )
+      })
+    },
+    footer-descent: 1em,
+    header-ascent: 1em,
+  )
   slide(align(center + horizon, body))
 }
 
@@ -107,38 +138,12 @@
 }
 
 #let simple-slide(body) = context {
-  let deco-format(it) = toolbox.full-width-block(
-    fill: fcb-background.get(),
-    inset: 8pt,
-  )[#text(size: .6em, fill: fcb-header-footer-foreground.get(), it)]
   set page(
-    // header: context {
-    //   let loc = here()
-    //   let sections = query(heading.where(level: 1, outlined: true).before(loc))
-    //   if sections == () [] else { deco-format(sections.last().body) }
-    // },
-    header: context {
-      deco-format({
-        fcb-header.get()
-      })
-    },
     footer: context {
-      deco-format({
+      small-format({
         stack(
           dir: ltr,
-          fcb-footer.get(),
           h(1fr),
-          // move(
-          //   dy: 2pt,
-          //   toolbox.progress-ratio(ratio => {
-          //     stack(
-          //       dir: ltr,
-          //       rect(stroke: fcb-header-footer-foreground.get(), fill: fcb-header-footer-foreground.get(), width: ratio * 150pt),
-          //       rect(stroke: fcb-header-footer-foreground.get(), fill: none, width: (1 - ratio) * 150pt)
-          //     )
-          //   }),
-          // ),
-          // h(10pt),
           toolbox.slide-number + " / " + toolbox.last-slide-number
         )
       })
