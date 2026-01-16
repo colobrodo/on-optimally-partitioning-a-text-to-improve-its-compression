@@ -36,6 +36,10 @@
 #let large-size = 1.3em
 #let huge-size = 1.6em
 
+#let highlight(color, text) = {
+  box(outset: (y: 8pt), fill:color, text)
+}
+
 #title-slide[
   = On Optimally Partitioning a Text to Improve Its Compression
 
@@ -97,8 +101,7 @@
 
   #figure(
     image("images/bijection2.svg", width: 80%),
-    caption: [We can map the path $pi=$ #box(fill: rgb(255, 178, 178).transparentize(10%))[$(v_1, v_4)$] #box(fill: rgb(178, 178, 255).transparentize(30%))[$(v_4, v_6)$] to the partitioning of the string #box(fill: rgb(255, 178, 178).transparentize(10%))[$T[1, 3]$]
-    #box(fill: rgb(178, 178, 255).transparentize(30%))[$T[4, 5]$]],
+    caption: [We can map the path $pi=$ #highlight(rgb(255, 178, 178).transparentize(10%), $(v_1, v_4)$) #highlight(rgb(178, 178, 255).transparentize(30%), $(v_4, v_6)$) to the partitioning of the string #highlight(rgb(255, 178, 178).transparentize(10%), $T[1, 3]$) #highlight(rgb(178, 178, 255).transparentize(30%), $T[4, 5]$)]
   ) <bijection>
 
 ]
@@ -203,15 +206,15 @@
 
   *Proof by induction:*
   - Base, trivial case for $n + 1$
-  - Then we need to show that $d_scr(G)(i) >= d_scr(G)(i + 1)$
+  - Then we need to show that $d_scr(G)(i) >= d_scr(G)(i + 1)$ by constructing a path $pi'_(i+1)$ that starts from $i + 1$ and it is always shorter than $d_scr(G)(i)$
   #v(2em)
 
-  Let $d_scr(G)(i)$ be $(v_i, v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$ 
-    - Trivial if $t_1 = i + 1$
-    - If $t_1 > i + 1$ then we can construct a shortest path $(v_(i+1), v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$ because thanks to the definition of _monotonicity_ we know that $w(i, t_1) >= w(i + 1, t_1)$ 
+  Let #highlight(rgb(178, 178, 255).transparentize(30%), $d_scr(G)(i)$) be #highlight(rgb(178, 178, 255).transparentize(30%), $(v_i, v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$)
+    1. Trivial if $t_1 = i + 1$: $pi'_(i+1) = (v_t_1, v_t_2)...(v_t_k, v_(n+1))$
+    2. If $t_1 > i + 1$ then we can construct a shorter path  #highlight(rgb(255, 178, 178).transparentize(10%), $pi'_(i+1) = (v_(i+1), v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$) because thanks to the definition of _monotonicity_ we know that $w(i, t_1) >= w(i + 1, t_1)$ 
 
     #figure(
-      image("images/shortest-path.svg", width: 60%),
+      image("images/shortest-path-colored.svg", width: 62%),
     ) <shortest-path>
 ]
 
