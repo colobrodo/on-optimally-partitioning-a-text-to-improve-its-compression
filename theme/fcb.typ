@@ -104,12 +104,12 @@
 )[#text(size: .6em, fill: fcb-header-footer-foreground.get(), it)]
 
 #let small-format(it) = toolbox.full-width-block(
-  fill: fcb-background.get(),
+  //fill: fcb-background.get(),
   inset: 8pt,
-)[#text(size: .6em, fill: fcb-foreground.get(), it)]
+)[#text(size: .6em, it)]
 
 #let centered-slide(body) = {
-    set page(
+  set page(
     footer: context {
       small-format({
         stack(
