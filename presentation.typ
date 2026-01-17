@@ -97,7 +97,7 @@
 #centered-slide[
   = Reduction to SSSP - Bijection between paths and partitions
 
-  #v(1em)
+  #v(1.5em)
 
   #one-by-one(start: 1)[
     We can then show that there exists a bijection from each path $pi = (v_1, v_i_1) ... (v_i_k, v_(n+1))$ in the graph, and the partitioning of the text $T$ in the form $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$
@@ -116,7 +116,7 @@
   #v(2em)
 
   #one-by-one(start: 1)[
-    If we weight each edge $(i, j)$ of the graph by the cost of compressing the corresponding text segment $w(i, j) = scr(C)(T[i, j-1])$, we can solve the partitioning problem _optimally_ computing the *Single Source Shortest Path (SSSP)*
+    If we weight each edge $(i, j)$ of the graph by the cost of compressing the corresponding text segment $w(i, j) = |scr(C)(T[i, j-1])|$, we can solve the partitioning problem _optimally_ computing the *Single Source Shortest Path (SSSP)*
 
     It can be computed efficiently in $O(|E|)$ time using a classic dynamic programming algorithm. 
   ]
@@ -140,7 +140,7 @@
   
   $|scr(C)(T[i, j])| >= |scr(C)(T[i + 1, j])|$
   
-  - We can compute the size of the compressed output incrementally: computing |$scr(C)(T[i, j])$| from the state of $scr(C)(T[i - 1, j])$ or $scr(C)(T[i, j - 1])$ takes constant time
+  - We can compute the size of the compressed output incrementally: computing $|scr(C)(T[i, j])|$ from the state of $scr(C)(T[i - 1, j])$ or $scr(C)(T[i, j - 1])$ takes constant time
 ]
 
 #centered-slide[
