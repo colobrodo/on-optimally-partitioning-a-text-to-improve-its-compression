@@ -291,7 +291,7 @@ $d_scr(G)(r) <= d_scr(G)(t_1) $)
   #figure(
     image("images/sliding-windows-advance-end.svg", width: 70%),
   )
-  if the operations `advance_left` and `advance_right` have respectively a complexity of $O(L)$ and $O(R)$ our algorithm execute asymptotically $O(n L + n log_(1+epsilon) R)$ steps
+  if the operations `advance_left` and `advance_right` have respectively a complexity of $O(L)$ and $O(R)$ our algorithm execute asymptotically $O(L n + R n log_(1+epsilon) n)$ steps
 ]
 
 #centered-slide[
@@ -299,7 +299,34 @@ $d_scr(G)(r) <= d_scr(G)(t_1) $)
 ]
 
 #simple-slide[
-  = Computing Entropy
+  = Computing Zero Order Entropy
+
+  #v(1em)
+
+  Zero-th order entropy is a well-known lower bound for the performance of statistical compressors.
+
+  For each windows $w_i$, we maintain an histogram, $A_i [c]$, indexed by the symbol $c in sum$
+
+  #align(center)[
+    $E_i = sum_(c in sum) A_i [c] log_2 A_i [c]$
+  ]
+]  
+#simple-slide[
+
+  Using $E_i$, we can calculate a lower bound on the output of the statistical compressor, $|scr(C)(T[..i])|$ based on the zero-th order entropy as
+  #align(center)[
+    $|T[..i]| H_0 (T[..i]) = |T[..i]| log_2|T[..i]| - E_i $
+  ]
+
+  From this we can calculate incrementally the value of $E_(i + 1)$ removing the old term from the summation and adding the new one: 
+  
+  Let $c = T[i+1]$ then
+  
+  #align(center)[
+    $E_(i+1) = E_i - A_i [c] log_2 A_i [c] + (A_i [c] + 1)(log_2 A_i [c] + 1)$
+  ]
+
+  
 ]
 
 #simple-slide[
