@@ -329,11 +329,14 @@ $d_scr(G)(r) <= d_scr(G)(t_1) $)
 ]
 
 #simple-slide[
-  = Application: Partitioned Elias-Fano
-  A compact data structure to store a set of $m$ monotonically increasing integers upper-bounded by $u$, that uses $approx ceil(log_2 u / m) + 2$ bits per element.
+  = Application: Partitioned Elias--Fano
+  === Elias--Fano Data Structure
+  A compact data structure to store a set of $m$ monotonically increasing integers upper-bounded by $u$. 
+  
+  It uses $approx ceil(log_2 u / m) + 2$ bits per element.
   
   #figure(
-    image("images/ef.svg", width: 80%),
+    image("images/ef2.svg", width: 80%),
   )
 
   Note that $u/m$ is the average distance between consecutive elements. It doesn't exploit the distribution of the data, but denser lists require fewer bits.
@@ -341,7 +344,7 @@ $d_scr(G)(r) <= d_scr(G)(t_1) $)
   Some sequence are more compressible than others
   
   #figure(
-    image("images/compressible-ef.svg", width: 80%),
+    image("images/compressible-ef2.svg", width: 80%),
   )
 
 ]
@@ -351,15 +354,14 @@ $d_scr(G)(r) <= d_scr(G)(t_1) $)
   The first level determines the bounds of the $b$ clusters, and the second level contains smaller Elias-Fano lists.
 
   #figure(
-    image("images/pef.svg", width: 80%),
+    image("images/pef.svg", width: 50%),
   )
 
   *How can we find the best partitioning to minimize the space occupancy of both levels?*
 
   We can use our partitioning algorithm, assigning a weight to each edge based on the number of bits required to represent the partition in the first level and the Elias-Fano structure in the second level.
   
-  The authors also improved the bound by showing that substituting an edge in the path with two sub-edges is always bounded by a constant factor. Thus, we can limit the search to a constant number of outgoing edges for each node.  
-
+  The authors also improved the bound by showing that substituting an edge in the path with two sub-edges is always bounded by a constant factor.  
 ]
 
 
