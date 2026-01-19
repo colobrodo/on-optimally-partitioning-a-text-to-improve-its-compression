@@ -331,6 +331,22 @@ $d_scr(G)(r) <= d_scr(G)(t_1) $)
 
 #simple-slide[
   = Application: Partitioned Elias-Fano
+  == Elias-Fano
+  A compact data structure to store a set of $m$ monotonically increasing integers upper-bounded by $u$, that uses $approx ceil(log_2 u / m) + 2$ bits per element.
+
+  Note that $u / m$ is the average distance between consecutive elements: it doesn't exploit the distribution of the data in any way
+
+]
+#simple-slide[
+  = Partitioned Elias-Fano
+  We can improve compression by exploiting clusters of data with a two-level structure. 
+  The first level determines the bounds of the $b$ clusters, and the second level contains smaller Elias-Fano lists.
+
+  *How can we find the best partitioning to minimize the space occupancy of both levels?*
+
+  We can use our partitioning algorithm, assigning a weight to each edge based on the number of bits required to represent the partition in the first level and the Elias-Fano structure in the second level.
+  
+  The authors also improved the bound by showing that substituting an edge in the path with two sub-edges is always bounded by a constant factor. Thus, we can limit the search to a constant number of outgoing edges for each node.  
 
 ]
 
