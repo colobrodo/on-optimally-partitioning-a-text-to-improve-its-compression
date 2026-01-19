@@ -325,22 +325,34 @@ $d_scr(G)(r) <= d_scr(G)(t_1) $)
   #align(center)[
     $E_(i+1) = E_i - A_i [c] log_2 A_i [c] + (A_i [c] + 1)(log_2 A_i [c] + 1)$
   ]
-
-  
+ 
 ]
 
 #simple-slide[
   = Application: Partitioned Elias-Fano
-  == Elias-Fano
   A compact data structure to store a set of $m$ monotonically increasing integers upper-bounded by $u$, that uses $approx ceil(log_2 u / m) + 2$ bits per element.
+  
+  #figure(
+    image("images/ef.svg", width: 80%),
+  )
 
-  Note that $u / m$ is the average distance between consecutive elements: it doesn't exploit the distribution of the data in any way
+  Note that $u/m$ is the average distance between consecutive elements. It doesn't exploit the distribution of the data, but denser lists require fewer bits.
+  
+  Some sequence are more compressible than others
+  
+  #figure(
+    image("images/compressible-ef.svg", width: 80%),
+  )
 
 ]
 #simple-slide[
   = Partitioned Elias-Fano
   We can improve compression by exploiting clusters of data with a two-level structure. 
   The first level determines the bounds of the $b$ clusters, and the second level contains smaller Elias-Fano lists.
+
+  #figure(
+    image("images/pef.svg", width: 80%),
+  )
 
   *How can we find the best partitioning to minimize the space occupancy of both levels?*
 
