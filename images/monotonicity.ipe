@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70218" creator="Ipe 7.2.24">
-<info created="D:20251223114519" modified="D:20260115141632"/>
+<ipe version="70218" creator="Ipe 7.2.29">
+<info created="D:20251223114519" modified="D:20260120120450"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -326,11 +326,7 @@ h
 <text matrix="1 0 0 1 16 0" transformations="translations" pos="320 624" stroke="black" type="label" width="9.027" height="4.29" depth="2.85" valign="baseline" style="math">v_j
 </text>
 <text matrix="1 0 0 1 32 0" transformations="translations" pos="384 624" stroke="black" type="label" width="19.114" height="4.29" depth="2.85" valign="baseline" style="math">v_{j+1}</text>
-<text transformations="translations" pos="256 608" stroke="black" type="label" width="143.929" height="7.473" depth="2.49" valign="baseline" style="math">w(i, j - 1) \le w(i, j) \le w(i, j + 1)</text>
-<path stroke="black" dash="dashed" pen="fat" arrow="normal/normal">
-208 592 m
-432 592 l
-</path>
+<text matrix="1 0 0 1 0 -8" transformations="translations" pos="256 608" stroke="black" type="label" width="143.929" height="7.473" depth="2.49" valign="baseline" style="math">w(i, j - 1) \le w(i, j) \le w(i, j + 1)</text>
 <text transformations="translations" pos="192 688" stroke="black" type="label" width="44.84" height="7.473" depth="2.49" valign="baseline" style="math">w(i, j - 1)
 </text>
 <text transformations="translations" pos="304 704" stroke="black" type="label" width="27.682" height="7.473" depth="2.49" valign="baseline" style="math">w(i, j)
@@ -345,5 +341,9 @@ h
 </path>
 <text transformations="translations" pos="352 736" stroke="black" type="label" width="44.84" height="7.473" depth="2.49" valign="baseline" style="math">w(i, j + 1)</text>
 <text matrix="2.51681 0 0 1 -250.958 0" transformations="translations" pos="176 640" stroke="black" type="label" width="8.302" height="1.052" depth="0" valign="baseline" style="math">...</text>
+<path matrix="1 0 0 1 0 16" stroke="darkgray" dash="dashed" arrow="normal/normal">
+128 600 m
+424 600 l
+</path>
 </page>
 </ipe>
