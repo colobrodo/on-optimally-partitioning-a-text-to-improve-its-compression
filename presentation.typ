@@ -369,9 +369,7 @@ $d_scr(G)(r) <= d_scr(G)(t_1) $)
   = Thank You!
 ]
 
-// #hidden-bibliography(
-// #text(small-size)[
-//   #bibliography("local.bib")
-// ]
-// )
+#text(small-size)[
+  #bibliography("local.bib")
+]
 
