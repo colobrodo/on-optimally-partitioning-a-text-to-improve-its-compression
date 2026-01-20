@@ -41,7 +41,7 @@
 }
 
 #title-slide[
-  = On Optimally Partitioning a Text to Improve Its Compression
+  = On Optimally Partitioning a Text to Improve Its Compression @optimalpartition
 
   #v(1em)
 
@@ -349,7 +349,7 @@ $d_scr(G)(r) <= d_scr(G)(t_1) $)
 
 ]
 #simple-slide[
-  = Partitioned Elias-Fano
+  = Partitioned Elias-Fano @OtVPEFI
   We can improve compression by exploiting clusters of data with a two-level structure. 
   The first level determines the bounds of the $b$ clusters, and the second level contains smaller Elias-Fano lists.
 
