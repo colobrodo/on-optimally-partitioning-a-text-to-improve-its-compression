@@ -205,22 +205,32 @@
 #let lemma_color = purple.transparentize(70%)
 
 #simple-slide[
-  == #highlight(lemma_color, "Lemma 1")
-  Let $d_scr(G)(i)$ be the cost of the shortest path $pi_i$ in our graph $scr(G)$ from $v_i$ to $v_(n+1)$ then
+  #align(horizon)[
+    == #highlight(lemma_color, "Lemma 1")
+    Let $d_scr(G)(i)$ be the cost of the shortest path $pi_i$ in our graph $scr(G)$ from $v_i$ to $v_(n+1)$ then
 
-  For all the vertices $i, j: 1 <= i < j <= n + 1$, $d_scr(G)(i) >= d_scr(G)(j)$
+    For all the vertices $i, j: 1 <= i < j <= n + 1$, $d_scr(G)(i) >= d_scr(G)(j)$
+  ]
+]
 
+#simple-slide[
+  #align(horizon)[
   *Proof by induction:*
   - Base, trivial case for $n + 1$
   - Then we need to show that $d_scr(G)(i) >= d_scr(G)(i + 1)$ by constructing a path $pi'_(i+1)$ that starts from $i + 1$ and it is always shorter than $d_scr(G)(i)$
-  #v(2em)
+  ]
+]
 
+#simple-slide[
   Let #highlight(rgb(178, 178, 255).transparentize(30%), $d_scr(G)(i)$) be #highlight(rgb(178, 178, 255).transparentize(30%), $(v_i, v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$)
     1. Trivial if $t_1 = i + 1$: $pi'_(i+1) = (v_t_1, v_t_2)...(v_t_k, v_(n+1))$
+    #figure(
+      image("images/shortest-path-first-case.svg", width: 80%),
+    ) <shortest-path>
     2. If $t_1 > i + 1$ then we can construct a shorter path  #highlight(rgb(255, 178, 178).transparentize(10%), $pi'_(i+1) = (v_(i+1), v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$) because thanks to the definition of _monotonicity_ we know that $w(i, t_1) >= w(i + 1, t_1)$ 
 
     #figure(
-      image("images/shortest-path-colored.svg", width: 62%),
+      image("images/shortest-path-colored.svg", width: 80%),
     ) <shortest-path>
 ]
 
@@ -235,9 +245,9 @@
   - *Base*, trivial case for $n + 1$ 
   - Then let $pi(i) = (v_i, v_t_1) .. (v_t_h, v_n)$ the shortest path starting from node $v_i$ and let $d_scr(G)(i) = w(i, t_1) + d_scr(G)(t_1)$ be its cost.
     We choose the $epsilon$-maximal node $r$ that covers $t_1$: 
-    So #highlight(lemma_color, $r > t_1$) and we already know that #par(first-line-indent: 1em, highlight(idea_color, [$w(i, r) <= (1 + epsilon)w(i, t_1)$])) 
+    So #highlight(lemma_color, $r > t_1$) and we already know (by our #highlight(idea_color, "\"key idea\"")) that #par(first-line-indent: 1em, highlight(idea_color, [$w(i, r) <= (1 + epsilon)w(i, t_1)$])) 
     
-    By _Lemma 1_: \ #par(first-line-indent: 1em,
+    By #highlight(lemma_color, [_Lemma 1_]): \ #par(first-line-indent: 1em,
       highlight(lemma_color, [$d_scr(G)(r) <= d_scr(G)(t_1) $])) 
   
     By inductive hypothesis: \ 
@@ -336,8 +346,16 @@
  
 ]
 
+#focus-slide[
+  = Thank You!
+]
+
+#text(small-size)[
+  #bibliography("local.bib")
+]
+
 #simple-slide[
-  = Application: Partitioned Elias--Fano
+  = Bonus Slides: Partitioned Elias--Fano
   === Elias--Fano Data Structure
   A compact data structure to store a set of $m$ monotonically increasing integers upper-bounded by $u$. 
   
@@ -354,8 +372,10 @@
   #figure(
     image("images/compressible-ef2.svg", width: 80%),
   )
-
 ]
+
+
+
 #simple-slide[
   = Partitioned Elias-Fano @OtVPEFI
   We can improve compression by exploiting clusters of data with a two-level structure. 
@@ -372,12 +392,4 @@
   The authors also improved the bound by showing that substituting an edge in the path with two sub-edges is always bounded by a constant factor.  
 ]
 
-
-#focus-slide[
-  = Thank You!
-]
-
-#text(small-size)[
-  #bibliography("local.bib")
-]
 
