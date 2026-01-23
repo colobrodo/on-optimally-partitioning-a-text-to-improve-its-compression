@@ -168,8 +168,10 @@
 
 ]
 
+#let idea_color = yellow.transparentize(70%)
+
 #simple-slide[
-  = Key Idea: $epsilon$-maximal edges
+  = #highlight(idea_color, [Key Idea: $epsilon$-maximal edges])
 
   #v(0.5em)
 
@@ -200,10 +202,10 @@
 
 ]
 
-
+#let lemma_color = purple.transparentize(70%)
 
 #simple-slide[
-  == Lemma 1
+  == #highlight(lemma_color, "Lemma 1")
   Let $d_scr(G)(i)$ be the cost of the shortest path $pi_i$ in our graph $scr(G)$ from $v_i$ to $v_(n+1)$ then
 
   For all the vertices $i, j: 1 <= i < j <= n + 1$, $d_scr(G)(i) >= d_scr(G)(j)$
@@ -222,24 +224,30 @@
     ) <shortest-path>
 ]
 
-#simple-slide[
+#centered-slide[
   = Theorem
-  Let $scr(G)_epsilon$ be the graph containing only $epsilon$-maximal edges, then $d_(scr(G)_epsilon)(i) <= (1 + epsilon)d_(scr(G))(i)$ for every $1 <= i <= n + 1$.
+  Let $scr(G)$ be the full graph and $scr(G)_epsilon$ be the graph containing only $epsilon$-maximal edges, then $d_(scr(G)_epsilon)(i) <= (1 + epsilon)d_(scr(G))(i)$ for every integer $1 <= i <= n + 1$.
+]
 
+#simple-slide[
   // TODO: I should say induction on what
   *Proof by induction:*
   - *Base*, trivial case for $n + 1$ 
-  - Then let $pi(i) = (v_i, v_t_1) .. (v_t_h, v_n)$ the shortest path starting from node $v_i$ and let $d_scr(G) = w(i, t_1) + d_scr(G)(t_1)$ be its cost.
+  - Then let $pi(i) = (v_i, v_t_1) .. (v_t_h, v_n)$ the shortest path starting from node $v_i$ and let $d_scr(G)(i) = w(i, t_1) + d_scr(G)(t_1)$ be its cost.
     We choose the $epsilon$-maximal node $r$ that covers $t_1$: 
-    So $r > t_1$ and we already know that #par(first-line-indent: 1em, $w(i, r) <= (1 + epsilon)w(i, t_1)$) 
+    So #highlight(lemma_color, $r > t_1$) and we already know that #par(first-line-indent: 1em, highlight(idea_color, [$w(i, r) <= (1 + epsilon)w(i, t_1)$])) 
     
     By _Lemma 1_: \ #par(first-line-indent: 1em,
-$d_scr(G)(r) <= d_scr(G)(t_1) $) 
+      highlight(lemma_color, [$d_scr(G)(r) <= d_scr(G)(t_1) $])) 
   
     By inductive hypothesis: \ 
     #par(first-line-indent: 1em, $d_scr(G)_epsilon (r) <= (1 + epsilon)d_scr(G)(r) <= (1 + epsilon)d_scr(G)(t_1)$) 
     
     In the end \ #par(first-line-indent: 1em, $d_(scr(G)_epsilon)(i) = w(i, r) + d_scr(G)_epsilon (r) <= (1 + epsilon)(w(i, t_1) + d_scr(G)(t_1)))$)
+
+        #figure(
+      image("images/theorem.svg", width: 62%),
+    ) <theorem>
 ]
 
 #simple-slide[
@@ -354,7 +362,7 @@ $d_scr(G)(r) <= d_scr(G)(t_1) $)
   The first level determines the bounds of the $b$ clusters, and the second level contains smaller Elias-Fano lists.
 
   #figure(
-    image("images/pef.svg", width: 50%),
+    image("images/pef.svg", width: 45%),
   )
 
   *How can we find the best partitioning to minimize the space occupancy of both levels?*
