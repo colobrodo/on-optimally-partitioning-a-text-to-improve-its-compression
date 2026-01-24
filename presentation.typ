@@ -63,8 +63,6 @@
   #align(horizon + center)[
     We have a *compressor $scr(C)$* and a *text $T$* of size $n$, is it possible to *divide $T$* into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and *compress each* of them individually with $scr(C)$ to improve the overall compression?
 
-    Intuitively we can group the most *similar parts* of the string together so each partition is *better compressed* by $scr(C)$. 
-    
     *Note:* We do *not* _permute_ the string.\ We are only interested in _partitioning_ it. 
   ]
 ]
@@ -206,7 +204,7 @@
 #let lemma_color = purple.transparentize(70%)
 
 #simple-slide[
-  == Now we know how to approximate a weight of the graph, but how we can approximate full _paths_?
+  == Our edges are increasing and can be approximated but what can we say about _paths_ in this graph?
   #align(horizon)[
     == #highlight(lemma_color, "Lemma 1")
     Let $d_scr(G)(i)$ be the cost of the shortest path $pi_i$ in our graph $scr(G)$ from $v_i$ to $v_(n+1)$ then
@@ -216,6 +214,14 @@
 ]
 
 #simple-slide[
+  #align(horizon)[ 
+     #figure(
+        image("images/lemma1.svg", width: 80%)
+     )
+  ]
+]
+
+#hidden-slide[
   #align(horizon)[
   *Proof by induction:*
   - Base, trivial case for $n + 1$
@@ -223,7 +229,7 @@
   ]
 ]
 
-#simple-slide[
+#hidden-slide[
   Let #highlight(rgb(178, 178, 255).transparentize(30%), $d_scr(G)(i)$) be #highlight(rgb(178, 178, 255).transparentize(30%), $(v_i, v_t_1)(v_t_1, v_t_2)...(v_t_k, v_(n+1))$)
     1. Trivial if $t_1 = i + 1$: $pi'_(i+1) = (v_t_1, v_t_2)...(v_t_k, v_(n+1))$
     #figure(

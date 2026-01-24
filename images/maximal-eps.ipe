@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70218" creator="Ipe 7.2.24">
-<info created="D:20251223114519" modified="D:20251223140624"/>
+<ipe version="70218" creator="Ipe 7.2.29">
+<info created="D:20251223114519" modified="D:20260124180119"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -323,9 +323,9 @@ h
 <text transformations="translations" pos="128 624" stroke="black" type="label" width="8.146" height="4.294" depth="1.49" valign="baseline" style="math">v_i
 </text>
 <text transformations="translations" pos="256 624" stroke="black" type="label" width="9.992" height="4.294" depth="1.49" valign="baseline" style="math">v_h</text>
-<text matrix="1 0 0 1 16 0" transformations="translations" pos="320 624" stroke="black" type="label" width="9.027" height="4.29" depth="2.85" valign="baseline" style="math">v_j
+<text matrix="1 0 0 1 16 0" transformations="translations" pos="320 624" stroke="black" type="label" width="9.241" height="4.294" depth="1.49" valign="baseline" style="math">v_r
 </text>
-<text matrix="1 0 0 1 32 0" transformations="translations" pos="384 624" stroke="black" type="label" width="19.114" height="4.29" depth="2.85" valign="baseline" style="math">v_{j+1}</text>
+<text matrix="1 0 0 1 32 0" transformations="translations" pos="384 624" stroke="black" type="label" width="19.328" height="4.294" depth="2.32" valign="baseline" style="math">v_{r+1}</text>
 <path stroke="blue" arrow="normal/normal">
 128 640 m
 107.498 0 0 -107.498 232 612.8 336 640 a

@@ -152,3 +152,6 @@
   )
   slide(body)
 }
+
+#let hidden-slide(body) = {
+}
