@@ -61,9 +61,9 @@
   #v(1em)
 
   #align(horizon + center)[
-    We have a compressor $scr(C)$ and a Text $T$ of size $n$, is it possible to divide $T$ into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and compress each of them individually with $scr(C)$ to improve the overall compression?
+    We have a *compressor $scr(C)$* and a *text $T$* of size $n$, is it possible to *divide $T$* into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and *compress each* of them individually with $scr(C)$ to improve the overall compression?
 
-    Intuitively we can group the most similar parts of the string together so each partition is better compressed by $scr(C)$. 
+    Intuitively we can group the most *similar parts* of the string together so each partition is *better compressed* by $scr(C)$. 
     
     *Note:* We do *not* _permute_ the string.\ We are only interested in _partitioning_ it. 
   ]
@@ -85,7 +85,7 @@
 
 #centered-slide[
   = Reduction to SSSP
-  We can model the partition problem as a directed graph with $n + 1$ vertices, where an edge exists between $v_i$ and $v_j$ only if $ 1 <= i < j <= n + 1 $ 
+  We can model the partition problem as a *directed graph* with $n + 1$ vertices, where an edge exists between $v_i$ and $v_j$ only if $ 1 <= i < j <= n + 1 $ 
 
   #figure(
     image("images/reduction.svg", width: 75%),
@@ -161,7 +161,7 @@
 
   Thanks to this property we can obtain an approximated algorithm by *sparsifying* the graph thus selecting only some edges.
 
-  We are able to obtain a $(1 + epsilon)$-approximation, for every $epsilon >= 0$, with a time complexity of $O(n log_(1 + epsilon) L)$ 
+  We are able to obtain a *$(1 + epsilon)$-approximation*, for every $epsilon >= 0$, with a time complexity of *$O(n log_(1 + epsilon) L)$* 
   
   where $L = w(1, n)$, so the cost of compressing the entire text.
 
@@ -178,7 +178,7 @@
 
   #align(center)[*How we can select some edges to obtain the $(1 + epsilon)$ approximation factor?*]
   
-  For each node $i$ select the $epsilon$-maximal edges, so the outgoing edge from $i$ that satisfy one of these conditions:
+  For each node $i$ select the *$epsilon$-maximal* edges, so the outgoing edge from $i$ that satisfy one of these conditions:
   - The edges $(i, j)$ such that $w(i, j) <= (1 + epsilon)^k < w(i, j + 1)$ for any integer $k >= 1$
   - The last outgoing edge: $(i, n + 1)$
 ]
@@ -268,12 +268,13 @@
   #v(1em)
 
   We still have two problems: 
-  1. if we construct naively this graph we should remove edges from a $O(n^2)$ graph
-  2. We should compute the weight of the graph
+  1. if we construct _naively_ this graph we should remove edges from a $O(n^2)$ graph
+  2. and we should compute the weight of each edge of the graph
 
   #v(1em)
 
-  _We can solve both these problems efficiently at once!_
+  _We can solve both these problems efficiently at once:_
+  We can find the $epsilon$-maximal edges efficently on the fly!
 ]
 
 #simple-slide[
@@ -315,7 +316,9 @@
 ]
 
 #centered-slide[
-  The authors provide several implementations of the sliding windows framework to estimate the size of different compressors, among the others statistical compressors (using 0-th order and k-order entropy)
+   #align(horizon)[
+	The authors provide several implementations of the sliding windows framework to estimate the size of different compressors, among the others statistical compressors (using 0-th order and k-order entropy)
+   ]
 ]
 
 #simple-slide[
@@ -325,7 +328,7 @@
 
   Zero-th order entropy is a well-known lower bound for the performance of statistical compressors.
 
-  For each windows $w_i$, we maintain an histogram, $A_i [c]$, indexed by the symbol $c in sum$
+  For each windows $w_i$, we maintain a histogram, $A_i [c]$, indexed by the symbol $c in sum$
 
   #align(center)[
     $E_i = sum_(c in sum) A_i [c] log_2 A_i [c]$
@@ -337,7 +340,9 @@
   #align(center)[
     $|T[..i]| H_0 (T[..i]) = |T[..i]| log_2|T[..i]| - E_i $
   ]
+]
 
+#simple-slide[
   From this we can calculate incrementally the value of $E_(i + 1)$ removing the old term from the summation and adding the new one: 
   
   Let $c = T[i+1]$ then
