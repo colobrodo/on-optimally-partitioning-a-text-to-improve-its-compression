@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.29">
-<info created="D:20260123143958" modified="D:20260123145956"/>
+<info created="D:20260123143958" modified="D:20260124111926"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -313,7 +313,21 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" fill="yellow" opacity="30%" stroke-opacity="opaque">
+<path layer="alpha" fill="yellow" opacity="10%" stroke-opacity="opaque">
+177.043 685.526 m
+177.043 673.783 l
+280.878 673.783 l
+280.878 685.526 l
+h
+</path>
+<path fill="purple" opacity="10%" stroke-opacity="opaque">
+371.58 682.745 m
+371.58 671.002 l
+438.331 671.002 l
+438.331 682.745 l
+h
+</path>
+<path fill="yellow" opacity="30%" stroke-opacity="opaque">
 122.758 640.411 m
 120.195 635.284
 126.237 630.34
@@ -345,11 +359,11 @@ h
 52 0 0 -52 176 620 224 640 a
 </path>
 <use name="mark/disk(sx)" pos="320 640" size="normal" stroke="black"/>
-<path stroke="black" arrow="normal/normal">
+<path stroke="blue" arrow="normal/normal">
 128 640 m
 104 0 0 -104 224 600 320 640 a
 </path>
-<path stroke="black" dash="dashed" arrow="normal/normal">
+<path stroke="blue" dash="dashed" arrow="normal/normal">
 320 640 m
 336 608
 352 672
@@ -367,8 +381,8 @@ h
 400 560
 432 640 c
 </path>
-<text transformations="translations" pos="328 656" stroke="black" type="label" width="9.241" height="4.294" depth="1.49" valign="baseline" style="math">v_r</text>
-<text transformations="translations" pos="232 648" stroke="black" type="label" width="12.225" height="4.29" depth="2.49" valign="baseline" style="math">v_{t_1}</text>
+<text matrix="1 0 0 1 -24.0877 -15.224" transformations="translations" pos="328 656" stroke="black" type="label" width="9.241" height="4.294" depth="1.49" valign="baseline" style="math">v_r</text>
+<text matrix="1 0 0 1 -3.09237 -5.23325" transformations="translations" pos="232 648" stroke="black" type="label" width="12.225" height="4.29" depth="2.49" valign="baseline" style="math">v_{t_1}</text>
 <text transformations="translations" pos="136 640" stroke="black" type="label" width="8.146" height="4.294" depth="1.49" valign="baseline" style="math">v_i</text>
 <path fill="yellow" opacity="30%" stroke-opacity="opaque">
 123.125 641.143 m
@@ -490,5 +504,22 @@ h
 <text matrix="1 0 0 1 -98.8809 -26.5669" transformations="translations" pos="277.006 704.275" stroke="black" type="label" width="101.693" height="7.473" depth="2.49" valign="baseline" style="math">w(i, t_1) \leq (1 + \varepsilon)w(i, r)</text>
 <text transformations="translations" pos="370.047 650.63" stroke="black" type="label" width="23.399" height="7.473" depth="2.49" valign="baseline" style="math">d_\mathcal{G}(r)</text>
 <text transformations="translations" pos="283.729 600.847" stroke="black" type="label" width="26.695" height="7.473" depth="2.49" valign="baseline" style="math">d_\mathcal{G}(t_1)</text>
+<path fill="purple" opacity="10%" stroke-opacity="opaque">
+208 768 m
+208 608 l
+208 608 l
+</path>
+<path fill="purple" opacity="10%" stroke-opacity="opaque">
+328 768 m
+328 592 l
+</path>
+<path stroke="blue" dash="dashed" opacity="10%" stroke-opacity="opaque">
+216 592 m
+216 736 l
+</path>
+<path stroke="blue" dash="dashed" opacity="10%" stroke-opacity="opaque">
+328 736 m
+328 592 l
+</path>
 </page>
 </ipe>

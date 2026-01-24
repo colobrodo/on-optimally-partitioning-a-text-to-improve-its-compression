@@ -100,7 +100,8 @@
   #v(1.5em)
 
   #one-by-one(start: 1)[
-    We can then show that there exists a bijection from each path $pi = (v_1, v_i_1) ... (v_i_k, v_(n+1))$ in the graph, and the partitioning of the text $T$ in the form $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$
+    In this graph each *edge* represent a *subsequence* of the text.
+    We can then show that there exists a *bijection* from each *path* $pi = (v_1, v_i_1) ... (v_i_k, v_(n+1))$ in the graph, and a *partitioning* of the text $T$ in the form $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$
   ]
 
   #figure(
@@ -205,6 +206,7 @@
 #let lemma_color = purple.transparentize(70%)
 
 #simple-slide[
+  == Now we know how to approximate a weight of the graph, but how we can approximate full _paths_?
   #align(horizon)[
     == #highlight(lemma_color, "Lemma 1")
     Let $d_scr(G)(i)$ be the cost of the shortest path $pi_i$ in our graph $scr(G)$ from $v_i$ to $v_(n+1)$ then
@@ -255,8 +257,8 @@
     
     In the end \ #par(first-line-indent: 1em, $d_(scr(G)_epsilon)(i) = w(i, r) + d_scr(G)_epsilon (r) <= (1 + epsilon)(w(i, t_1) + d_scr(G)(t_1)))$)
 
-        #figure(
-      image("images/theorem.svg", width: 62%),
+    #figure(
+      image("images/theorem.svg", width: 80%),
     ) <theorem>
 ]
 
