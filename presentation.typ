@@ -348,21 +348,24 @@
 ]  
 #simple-slide[
 
-  Using $E_k$, we can calculate a lower bound on the output of the statistical compressor, $|scr(C)(T[i..j])|$ based on the zero-th order entropy as
-  #align(center)[
-    $|T[i..j]| H_0 (T[i..j]) = |T[i..j]| log_2|T[i..j]| - E_k $
+  #align(horizon)[
+    Using $E_k$, we can calculate a lower bound on the output of the statistical compressor, $|scr(C)(T[i..j])|$ based on the zero-th order entropy as
+    #align(center)[
+      $|T[i..j]| H_0 (T[i..j]) = |T[i..j]| log_2|T[i..j]| - E_k $
+    ]
   ]
 ]
 
 #simple-slide[
-  From this we can calculate incrementally the value of $E_(k + 1)$ removing the old term from the summation and adding the new one: 
-  
-  Let $c = T[j+1]$ then
-  
-  #align(center)[
-    $E_(k+1) = E_k - A_k [c] log_2 A_k [c] + (A_k [c] + 1)(log_2 A_k [c] + 1)$
+  #align(horizon)[
+    From this we can calculate incrementally the value of $E_(k + 1)$ removing the old term from the summation and adding the new one: 
+    
+    Let $c = T[j+1]$ then
+    
+    #align(center)[
+      $E_(k+1) = E_k - A_k [c] log_2 A_k [c] + (A_k [c] + 1)(log_2 A_k [c] + 1)$
+    ]
   ]
- 
 ]
 
 #focus-slide[
