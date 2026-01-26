@@ -61,7 +61,7 @@
   #v(1em)
 
   #align(horizon + center)[
-    We have a *compressor $scr(C)$* and a *text $T$* of size $n$, is it possible to *divide $T$* into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and *compress each* of them individually with $scr(C)$ to improve the overall compression?
+    We have a *compressor $scr(C)$* and a *text $T$* of size $n$, we want to *divide $T$* into $k <= n$ parts, $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$ and *compress each* of them individually with $scr(C)$ to improve the overall compression
 
     *Note:* We do *not* _permute_ the string.\ We are only interested in _partitioning_ it. 
   ]
@@ -83,10 +83,10 @@
 
 #centered-slide[
   = Reduction to SSSP
-  We can model the partition problem as a *directed graph* with $n + 1$ vertices, where an edge exists between $v_i$ and $v_j$ only if $ 1 <= i < j <= n + 1 $ 
+  We can model the partition problem as a *directed graph* with $n + 1$ _ordered_ vertices, where an edge exists between $v_i$ and $v_j$ only if $1 <= i < j <= n + 1$ 
 
   #figure(
-    image("images/reduction.svg", width: 75%),
+    image("images/reduction.svg", width: 80%),
   ) <reduction>
   
 
@@ -99,7 +99,8 @@
 
   #one-by-one(start: 1)[
     In this graph each *edge* represents a *substring* of the text.
-    We can then show that there exists a *bijection* from each *path* $pi = (v_1, v_i_1) ... (v_i_k, v_(n+1))$ in the graph, and a *partitioning* of the text $T$ in the form $T[1..i_1-1]T[i_1..i_2-1]...T[i_(k-1)..n]$
+
+    We can then show that there exists a *bijection* from each *path* $pi = (v_1, v_i_1) ... (v_i_k, v_(n+1))$ in the graph, and a *partitioning* of the text $T$ in the form $T[1..i_1-1]T[i_1..i_2-1]...T[i_k..n]$
   ]
 
   #figure(
@@ -140,6 +141,10 @@
   $|scr(C)(T[i, j])| >= |scr(C)(T[i + 1, j])|$
   
   - We can compute the size of the compressed output incrementally: computing $|scr(C)(T[i, j])|$ from the state of $scr(C)(T[i - 1, j])$ or $scr(C)(T[i, j - 1])$ takes constant time
+]
+
+#centered-slide[
+  = How the property of monotonicity affect the topology of our DAG?
 ]
 
 #centered-slide[
@@ -207,9 +212,9 @@
   == Our edges are increasing and can be approximated but what can we say about _paths_ in this graph?
   #align(horizon)[
     == #highlight(lemma_color, "Lemma 1")
-    Let $d_scr(G)(i)$ be the cost of the shortest path $pi_i$ in our graph $scr(G)$ from $v_i$ to $v_(n+1)$ then
-
-    For all the vertices $i, j: 1 <= i < j <= n + 1$, $d_scr(G)(i) >= d_scr(G)(j)$
+    Let $d_scr(G)(i)$ be the cost of the shortest path $pi_i$ in our graph $scr(G)$ from $v_i$ to $v_(n+1)$ then 
+    
+    for all the vertices $i, j: 1 <= i < j <= n + 1$, $d_scr(G)(i) >= d_scr(G)(j)$
   ]
 ]
 
@@ -248,10 +253,9 @@
 ]
 
 #simple-slide[
-  // TODO: I should say induction on what
-  *Proof by induction:*
+  *Proof by induction on $pi(i)$:*
   - *Base*, trivial case for $n + 1$ 
-  - Then let $pi(i) = (v_i, v_t_1) .. (v_t_h, v_n)$ the shortest path starting from node $v_i$ and let $d_scr(G)(i) = w(i, t_1) + d_scr(G)(t_1)$ be its cost.
+  - Let $pi(i) = (v_i, v_t_1) .. (v_t_h, v_n)$ the shortest path starting from node $v_i$ and let $d_scr(G)(i) = w(i, t_1) + d_scr(G)(t_1)$ be its cost.
     We choose the $epsilon$-maximal node $r$ that covers $t_1$: 
     So #highlight(lemma_color, $r > t_1$) and we already know (by our #highlight(idea_color, "\"key idea\"")) that #par(first-line-indent: 1em, highlight(idea_color, [$w(i, r) <= (1 + epsilon)w(i, t_1)$])) 
     
@@ -301,7 +305,7 @@
   #v(1em)
 
   For each compressor we should implement 2 operations on the windows `advance_left`, `advance_right`:
-  The first operation advances the start of *all* the windows.
+  The first operation advances the start of *all* the windows to the left.
 
   #figure(
     image("images/sliding-windows-advance-start.svg", width: 80%),
@@ -312,7 +316,7 @@
   = Sliding windows
   #v(0.5em)
   `advance_right` 
-  advance the end of the $k$-th window of one position.
+  advance the end of the $k$-th window of one position to the left.
   
   We call this function until we reach the last edge smaller than $(1 + epsilon)^k$, so until we find the $k$-th maximal edge starting from node $i$.
   #figure(

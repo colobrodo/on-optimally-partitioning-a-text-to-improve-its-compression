@@ -333,9 +333,9 @@
   <use xlink:href="#glyph3-1" x="57.0232" y="145.2412"/>
   <use xlink:href="#glyph3-1" x="63.309439" y="145.2412"/>
 </g>
-<path style=" stroke:none;fill-rule:evenodd;fill:rgb(0%,0%,100%);fill-opacity:0.1;" d="M 233 193 L 233 201 L 313 201 L 313 193 Z M 233 193 "/>
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(0%,0%,100%);fill-opacity:0.3;" d="M 233 193 L 233 201 L 313 201 L 313 193 Z M 233 193 "/>
 <path style="fill:none;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 336 600 L 416 600 " transform="matrix(1,0,0,-1,-103,785)"/>
-<path style="fill-rule:evenodd;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 416 600 L 409 602.332031 L 409 597.667969 Z M 416 600 " transform="matrix(1,0,0,-1,-103,785)"/>
+<path style="fill-rule:evenodd;fill:rgb(0%,0%,0%);fill-opacity:1;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 336 600 L 343 597.667969 L 343 602.332031 Z M 336 600 " transform="matrix(1,0,0,-1,-103,785)"/>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph16-1" x="329" y="200.999"/>
   <use xlink:href="#glyph16-2" x="334.230365" y="200.999"/>
