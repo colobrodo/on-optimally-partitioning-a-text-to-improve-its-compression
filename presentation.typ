@@ -307,6 +307,8 @@
   For each compressor we should implement 2 operations on the windows `advance_left`, `advance_right`:
   The first operation advances the start of *all* the windows to the left.
 
+  The cost of all the windows increase or stay the same.  
+
   #figure(
     image("images/sliding-windows-advance-start.svg", width: 80%),
   )
@@ -318,7 +320,7 @@
   `advance_right` 
   advance the end of the $k$-th window of one position to the left.
   
-  We call this function until we reach the last edge smaller than $(1 + epsilon)^k$, so until we find the $k$-th maximal edge starting from node $i$.
+  We call this function until we reach the first edge smaller than $(1 + epsilon)^k$, so until we find the $k$-th maximal edge starting from node $i$.
   #figure(
     image("images/sliding-windows-advance-end.svg", width: 70%),
   )
@@ -327,8 +329,8 @@
 
 #centered-slide[
    #align(horizon)[
-	The authors provide several implementations of the sliding windows framework to estimate the size of different compressors, among the others statistical compressors (using 0-th order and k-order entropy)
-   ]
+	  The authors provide several implementations of the sliding windows framework to estimate the size of different compressors, among the others statistical compressors (using 0-th order and k-order entropy)
+  ]
 ]
 
 #simple-slide[
@@ -338,27 +340,27 @@
 
   Zero-th order entropy is a well-known lower bound for the performance of statistical compressors.
 
-  For each windows $w_i$, we maintain a histogram, $A_i [c]$, indexed by the symbol $c in sum$
+  For each windows $w_k$ that covers the substring $T[i..j]$, we maintain a histogram, $A_k [c]$, indexed by the symbol $c in sum$ and the value
 
   #align(center)[
-    $E_i = sum_(c in sum) A_i [c] log_2 A_i [c]$
+    $E_k = sum_(c in sum) A_k [c] log_2 A_k [c]$
   ]
 ]  
 #simple-slide[
 
-  Using $E_i$, we can calculate a lower bound on the output of the statistical compressor, $|scr(C)(T[..i])|$ based on the zero-th order entropy as
+  Using $E_k$, we can calculate a lower bound on the output of the statistical compressor, $|scr(C)(T[i..j])|$ based on the zero-th order entropy as
   #align(center)[
-    $|T[..i]| H_0 (T[..i]) = |T[..i]| log_2|T[..i]| - E_i $
+    $|T[i..j]| H_0 (T[i..j]) = |T[i..j]| log_2|T[i..j]| - E_k $
   ]
 ]
 
 #simple-slide[
-  From this we can calculate incrementally the value of $E_(i + 1)$ removing the old term from the summation and adding the new one: 
+  From this we can calculate incrementally the value of $E_(k + 1)$ removing the old term from the summation and adding the new one: 
   
-  Let $c = T[i+1]$ then
+  Let $c = T[j+1]$ then
   
   #align(center)[
-    $E_(i+1) = E_i - A_i [c] log_2 A_i [c] + (A_i [c] + 1)(log_2 A_i [c] + 1)$
+    $E_(k+1) = E_k - A_k [c] log_2 A_k [c] + (A_k [c] + 1)(log_2 A_k [c] + 1)$
   ]
  
 ]
