@@ -181,7 +181,7 @@
 
   #align(center)[*How we can select some edges to obtain the $(1 + epsilon)$ approximation factor?*]
   
-  For each node $i$ select the *$epsilon$-maximal* edges, so the outgoing edge from $i$ that satisfy one of these conditions:
+  For each node $i$ select the *$epsilon$-maximal* edges, so the outgoing edges from $i$ that satisfy one of these conditions:
   - The edges $(i, j)$ such that $w(i, j) <= (1 + epsilon)^k < w(i, j + 1)$ for any integer $k >= 1$
   - The last outgoing edge: $(i, n + 1)$
 ]
