@@ -294,6 +294,8 @@
   We keep $log_(1 + epsilon)L$ sliding windows all starting at $v_i$, but ending in a different position.
   The $k$-th window find the $k$-th $epsilon$-maximal edge. 
 
+  We can retrieve the cost of the compressor on the respective substring covered by a window in constant time.
+
   #figure(
     image("images/sliding-windows.svg", width: 80%),
   )
@@ -317,8 +319,7 @@
 #simple-slide[
   = Sliding windows
   #v(0.5em)
-  `advance_right` 
-  advance the end of the $k$-th window of one position to the left.
+  `advance_right` *advances the end* of the $k$-th window of one position to the left.
   
   We call this function until we reach the first edge smaller than $(1 + epsilon)^k$, so until we find the $k$-th maximal edge starting from node $i$.
   #figure(
